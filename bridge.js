@@ -13,10 +13,16 @@ var newBridge = net.createConnection(CONFIG.serverPort, CONFIG.server, () => {
   console.log("successlly");
 });
 
-newBridge.on('data',(data)=>{
-  if(data.toString('utf8')=='new'){
-    var newSocket=new net.Socket();
-    newSocket.connect(CONFIG.appPort,CONFIG.app,()=> console.log('new connection'))
+newBridge.on("data", (data) => {
+  let datas = JSON.parse(data);
+  if (datas.type == "new") {
+    var newSocket = new net.Socket();
+    newSocket.connect(CONFIG.appPort, CONFIG.app);
+    var newServer = new net.Socket();
+    newServer.connect(datas.port, CONFIG.server);
+    newServer.pipe(newSocket);
+    newSocket.pipe(newServer);
+
     clients.push(newSocket);
   }
-})
+});

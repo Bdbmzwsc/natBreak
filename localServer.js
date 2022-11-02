@@ -6,4 +6,9 @@ server.on("connection", (sock) => {
   sock.on("close", () => {
     console.log("this connection closed");
   });
+
+  sock.on('data',(data)=>{
+    console.log(data.toString('utf8'));
+  });
+  sock.write('HelloWorld');
 });
