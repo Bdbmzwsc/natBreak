@@ -1,4 +1,4 @@
-var net = require("net");
+import * as net from 'net';
 
 const CONFIG = {
   serverPort: 7777,
@@ -7,13 +7,13 @@ const CONFIG = {
   app: "127.0.0.1",
 };
 
-var clients = [];
+var clients: net.Socket[] = [];
 
 var newBridge = net.createConnection(CONFIG.serverPort, CONFIG.server, () => {
   console.log("successlly");
 });
 
-newBridge.on("data", (data) => {
+newBridge.on("data", (data: string) => {
   let datas = JSON.parse(data);
   if (datas.type == "new") {
     var newSocket = new net.Socket();

@@ -1,0 +1,12 @@
+{
+  "name": "nat_break",
+  "version": "1.0.0",
+  "description": "this tool can break nat",
+  "main": "index.js",
+  "repository": "https://github.com/Bdbmzwsc/natBreak.git",
+  "author": "Bdbmzwsc <chinabdbmzwsc@outlook.com>",
+  "license": "GPL",
+  "script": {
+    "start": "server.js"
+  }
+}
