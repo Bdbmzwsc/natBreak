@@ -22,7 +22,6 @@ newBridge.on("data", (data: string) => {
     newServer.connect(datas.port, CONFIG.server);
     newServer.pipe(newSocket);
     newSocket.pipe(newServer);
-
     clients.push(newSocket);
   }
 });

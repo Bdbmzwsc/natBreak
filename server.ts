@@ -1,4 +1,4 @@
-import net from 'net';
+import * as net from 'net';
 
 const CONFIG = {
   outPort: 7654,

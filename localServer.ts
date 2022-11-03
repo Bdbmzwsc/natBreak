@@ -1,4 +1,4 @@
-import net from 'net';
+import * as net from 'net';
 var server = net.createServer();
 server.listen(25565, "127.0.0.1");
 server.on("connection", (sock: net.Socket) => {
